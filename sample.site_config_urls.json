@@ -5,41 +5,63 @@
 			"url_customizado":"teste-mt",
 			"url_lv": "2",
 			"url_anterior":"url-control",
-			"file_server" : "teste.php",
-			"lv_solicitado": "require_once"
+			"caminho_no_server" : "teste.php",
+			"tp_cont_solic": "require_once"
 		},
 		{
 			"id":"2",
 			"url_customizado":"teste-url",
 			"url_lv": "2",
 			"url_anterior":"url-control",
-			"file_server" : "teste1.php",
-			"lv_solicitado": "require_once"
+			"caminho_no_server" : "teste1.php",
+			"tp_cont_solic": "require_once"
 		},
 		{
 			"id":"3",
 			"url_customizado":"url3",
 			"url_lv": "3",
 			"url_anterior":"teste-url",
-			"file_server" : "teste2.php",
-			"lv_solicitado": "require_once"
+			"caminho_no_server" : "teste2.php",
+			"tp_cont_solic": "require_once"
 		},
 		{
 			"id":"4",
 			"url_customizado":"url4",
 			"url_lv": "4",
 			"url_anterior":"url3",
-			"file_server" : "testelv4.php",
-			"lv_solicitado": "require_once"
+			"caminho_no_server" : "testelv4.php",
+			"tp_cont_solic": "require_once"
 		},
 		{
 			"id":"5",
 			"url_customizado":"index",
 			"url_lv": "2",
 			"url_anterior":"url-control",
-			"file_server" : "fake_index.php",
-			"lv_solicitado": "require_once"
+			"caminho_no_server" : "fake_index.php",
+			"tp_cont_solic": "require_once"
+		},
+		{
+			"id":"6",
+			"url_customizado":"url-control",
+			"url_lv": "1",
+			"url_anterior":"testes_",
+			"caminho_no_server" : "fake_index.php",
+			"tp_cont_solic": "require_once"
+		},
+		{
+			"id":"7",
+			"url_customizado":"acesso-img",
+			"url_lv": "3",
+			"url_anterior":"teste-mt",
+			"caminho_no_server" : "download.png",
+			"tp_cont_solic": "image/png"
 		}
 	],
-	"acesso_interface": "25-01-2023 15:09:02"
+	"ultimo_acesso_interface": "25-01-2023 15:09:02",
+	"debug_ips_validos":[
+		"::1"
+	],
+	"debug_string_valida":"debug_url_lv",
+	"user_configs":"",
+	"pass_configs":""
 }
