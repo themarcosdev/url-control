@@ -65,6 +65,7 @@
 
 	/* Exibindo debug caso debug_url_lv esteja presente no querystring  */
 	if(isset($_GET['debug_url_lv'])){
+		error_reporting(-1);
 		foreach($url_lv as $i => $lv){
 			echo "lv[$i]-".$lv.'<br>';
 		}
@@ -85,7 +86,7 @@
 			Se o se o url_anterior é igual url_lv[informado-1] ; 
 			Se não existir uma próxima declaração de lvl+1, caso exista teremos que validar sempre por ela;
 		*/
-		if((isset($url_lv[$url->url_lv]) && $url_lv[$url->url_lv] == $url->url_customizado) && ($url->url_anterior == $url_lv[$url->url_lv-1]) && !isset($url_lv[$url->url_lv+1])){
+		if((isset($url_lv[$url->url_lv]) && $url_lv[$url->url_lv] == $url->url_customizado) && ($url->url_anterior == (isset($url_lv[$url->url_lv-1]) ? $url_lv[$url->url_lv-1] : "")) && !isset($url_lv[$url->url_lv+1])){
 			if(file_exists($url->file_server)){
 				$inclusao += 1;
 				if($url->lv_solicitado == "require_once"){
