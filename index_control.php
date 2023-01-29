@@ -101,7 +101,7 @@
 					"url_lv"=> count($url),
 					"url_anterior"=> $url[count($url)-1],
 					"caminho_no_server" => "index_interface_control.php",
-					"lv_solicitado"=> "require_once"
+					"tp_cont_solic"=> "require_once"
 			));
 
 			$configs = json_encode($json,JSON_PRETTY_PRINT);
