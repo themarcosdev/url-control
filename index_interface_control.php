@@ -5,7 +5,7 @@
 <html lang="ptbr">
 <?php
 	$titulo_pag = "Controle de URLS";
-	require_once __DIR__ . "/header.php";
+	require_once __DIR__ . "/index_header.php";
 
 	$configs = json_decode(getConfigs());
 ?>
