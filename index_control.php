@@ -1,5 +1,5 @@
 <?php
-	/** Função para quebrar a url requisitada após o host por / */
+	/** Função para quebrar a url requisitada após o host por barra('/') */
 	function urlRequestParser(){
 		/* Pegando URL de qualquer página dinâmicamente */
 		$uri = $_SERVER['REQUEST_URI'];
@@ -29,13 +29,19 @@
 	function validaHtAcess(){
 		if(!file_exists(__DIR__."/.htaccess")){
 			$pontoHtAccess = '
-				## REFERENCIA : https://webmasters.stackexchange.com/q/101391 ;
+				### --- Criando .htacess seguro basedo nas referencias --- ### 
+				## REF 1 : https://webmasters.stackexchange.com/q/101391 ;
 				<IfModule mod_rewrite.c>
 
 				############################################
 				## Enable rewrites
 
 					Options +FollowSymLinks
+
+					## REF 2 : https://stackoverflow.com/a/55980217
+					# Disable Directory listing
+					Options -Indexes
+
 					RewriteEngine on
 
 				## Business Rewrite
@@ -72,6 +78,11 @@
 					RewriteRule .* index.php [L]
 
 				</IfModule>
+				## REF 2 : https://stackoverflow.com/a/55980217 block files which needs to be hidden, specify .example extension of the file
+				<Files ~ "\.(env|json|config.js|md|gitignore|gitattributes|lock|png|jpeg|jpg)$">
+					Order allow,deny
+					Deny from all
+				</Files>
 			';
 
 			/* Escrevendo arquivo .htaccess */
@@ -91,6 +102,7 @@
 			$json['debug_string_valida'] = "debug_url_lv";
 			$json['user_configs'] = "";
 			$json['pass_configs'] = "";
+			$json['hab_interface'] = "1";
 
 			$url = urlRequestParser();
 
@@ -98,10 +110,10 @@
 			array_push($json['urls'],array(
 					"id"=>"1",
 					"url_customizado"=>"painel-controle-urls",
-					"url_lv"=> count($url),
-					"url_anterior"=> $url[count($url)-1],
+					"url_lv"=> count($url)-1,
+					"url_anterior"=> $url[count($url)-2],
 					"caminho_no_server" => "index_interface_control.php",
-					"tp_cont_solic"=> "require_once"
+					"tipo_solicitado"=> "require_once"
 			));
 
 			$configs = json_encode($json,JSON_PRETTY_PRINT);
